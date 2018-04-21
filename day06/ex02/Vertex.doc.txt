@@ -1,0 +1,13 @@
+
+<- Vertex ----------------------------------------------------------------------
+The Vertex class simply offers a coordinate encapsulation and provides reading
+and writing assessors.
+
+An instance can be constructed like this:
+new Vertex( array( 'x' => 3.0, 'y' = 2.0, 'z' = 1.0, 'w' => 1.0, 'color' => $color) );
+
+Keys (x, y, z) are mandatory
+Keys (w, color) are optional
+Key (w) has default value 1.0
+Key (color) is an instance of class Color, by default it worth a new instance of the color white;
+---------------------------------------------------------------------- Vertex ->

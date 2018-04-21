@@ -1,0 +1,125 @@
+<html>
+    <head>
+        <style>
+            #balloon
+            {
+                margin: 0 auto;
+                width: 200px;
+                height: 200px;
+                background-color: red;
+                border-radius: 50%;
+
+                -webkit-transition-duration: 0.2s;
+                transition-duration: 0.2s;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="balloon"></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+
+            var balloon = $("#balloon");
+
+            $(balloon).on({
+
+                click: function ()
+                {
+                    var size = $(balloon).css("width");
+                    var color = $(balloon).css("backgroundColor");
+                    size = parseInt(size);
+
+                    $(this).css("width", size + 10);
+                    $(this).css("height", size + 10);
+
+                    if (size > 420)
+                    {
+                        $(this).css("width", 200);
+                        $(this).css("height", 200);
+                    }
+
+                    if (color === "rgb(255, 0, 0)")
+                        $(this).css("backgroundColor", "green");
+                    else if (color === "rgb(0, 128, 0)")
+                        $(this).css("backgroundColor", "blue");
+                    else if (color === "rgb(0, 0, 255)")
+                        $(this).css("backgroundColor", "red");
+                },
+
+                mouseleave: function ()
+                {
+                    var size = $(balloon).css("width");
+                    var color = $(balloon).css("backgroundColor");
+                    size = parseInt(size);
+
+                    if (size - 5 >= 200)
+                        size -= 5;
+
+                    $(this).css("width", size);
+                    $(this).css("height", size);
+
+                    if (color === "rgb(255, 0, 0)")
+                        $(this).css("backgroundColor", "blue");
+                    else if (color === "rgb(0, 128, 0)")
+                        $(this).css("backgroundColor", "red");
+                    else if (color === "rgb(0, 0, 255)")
+                        $(this).css("backgroundColor", "green");
+                }
+
+            });
+
+
+//            var balloon = document.getElementById("balloon");
+//
+//            balloon.addEventListener("click", balloonGrow);
+//            balloon.addEventListener("mouseout", balloonShrink);
+//
+//            function balloonGrow()
+//            {
+//                var balloonStyle = window.getComputedStyle(balloon);
+//
+//                var bSize = parseInt(balloonStyle.width);
+//                var bColor = balloonStyle.backgroundColor;
+//
+//                bSize += 10;
+//                balloon.style.width = bSize + "px";
+//                balloon.style.height = bSize + "px";
+//
+//                if (bSize > 420)
+//                {
+//                    balloon.style.width = "200px";
+//                    balloon.style.height = "200px";
+//                }
+//
+//                if (bColor === "rgb(255, 0, 0)")
+//                    balloon.style.backgroundColor = "rgb(0, 255, 0)";
+//                else if (bColor === "rgb(0, 255, 0)")
+//                    balloon.style.backgroundColor = "rgb(0, 0, 255)";
+//                else if (bColor === "rgb(0, 0, 255)")
+//                    balloon.style.backgroundColor = "rgb(255, 0, 0)";
+//            }
+//
+//            function balloonShrink()
+//            {
+//                var balloonStyle = window.getComputedStyle(balloon);
+//
+//                var bSize = parseInt(balloonStyle.width);
+//                var bColor = balloonStyle.backgroundColor;
+//
+//                if (bSize - 5 >= 200)
+//                {
+//                    bSize -= 5;
+//                    balloon.style.width = bSize + "px";
+//                    balloon.style.height = bSize + "px";
+//                }
+//
+//                if (bColor === "rgb(255, 0, 0)")
+//                    balloon.style.backgroundColor = "rgb(0, 0, 255)";
+//                else if (bColor === "rgb(0, 255, 0)")
+//                    balloon.style.backgroundColor = "rgb(255, 0, 0)";
+//                else if (bColor === "rgb(0, 0, 255)")
+//                    balloon.style.backgroundColor = "rgb(0, 255, 0)";
+//            }
+        </script>
+    </body>
+</html>

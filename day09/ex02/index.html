@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <link>
+        <style>
+
+            body
+            {
+                background-color: #f1f1f1;
+            }
+
+            div
+            {
+                margin: 0 auto;
+                padding: 4px 4px;
+                width: fit-content;
+                max-width: 1200px;
+
+            }
+
+            .list-elem
+            {
+                text-align: center;
+                font-family: Arial,sans-serif;
+                font-size: 18px;
+                background-color: white;
+                padding: 10px 20px;
+                margin-top: 5px;
+                border-radius: 5px;
+
+                box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+                -webkit-transition-duration: 0.2s;
+                transition-duration: 0.2s;
+            }
+
+            .list-elem:hover
+            {
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            }
+
+            button
+            {
+                position: fixed;
+                bottom: 35px;
+                right: 35px;
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                outline: 0;
+                border: 0;
+                color: #f1f1f1;
+                background-color: #5ccc5c;
+                font-size: 12px;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+
+                -webkit-transition-duration: 0.2s;
+                transition-duration: 0.2s;
+            }
+
+            button:hover
+            {
+                cursor: pointer;
+                background-color: #5cd75c;
+            }
+
+            button:active
+            {
+                cursor: pointer;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            }
+
+        </style>
+    </head>
+    <body>
+        <div><button id="new">New</button></div>
+        <div id="ft_list"></div>
+        <script src="todo.js"></script>
+        <script> getCookies(); </script>
+    </body>
+</html>

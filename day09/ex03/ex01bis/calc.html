@@ -1,0 +1,154 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+
+            body
+            {
+                background-color: #f1f1f1;
+            }
+
+            div
+            {
+                width: fit-content;
+                height: auto;
+                margin: 0 auto;
+                padding: 0 0;
+            }
+
+            .input-field
+            {
+                display: inline-block;
+                padding: 4px;
+                margin: 4px;
+                height: 25px;
+                width: 150px;
+                border-radius: 5px;
+                background-color: white;
+                box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+            }
+
+            #operators
+            {
+                width: 50px;
+                height: 20px;
+                font-weight: bolder;
+                background-color: white;
+                border: 0;
+                box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+                color: #777777;
+                text-align: center;
+            }
+
+            input
+            {
+                text-align: center;
+                width: 140px;
+                height: 15px;
+                margin: 5px;
+                border: 0;
+                outline: 0;
+                color: #777777;
+            }
+
+            #calculate
+            {
+                width: 97%;
+                margin: 4px;
+                height: 25px;
+                border-radius: 5px;
+                outline: 0;
+                border: 0;
+                color: #888888;
+                box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+
+                -webkit-transition-duration: 0.2s;
+                transition-duration: 0.2s;
+            }
+
+            #calculate:hover
+            {
+                cursor: pointer;
+                background-color: #fafafa;
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+
+            #calculate:active
+            {
+                cursor: pointer;
+                box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+            }
+        </style>
+    </head>
+    <body>
+    <div>
+        <div class="input-field">
+            <input id="left-member" type="text" placeholder="Right number">
+        </div>
+        <select id="operators">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <div class="input-field">
+            <input id="right-member" type="text" placeholder="Left number">
+        </div> <br>
+        <input type="submit" id="calculate" value="Try me!">
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+        setInterval(function () { alert("Please, use me...") }, 30000);
+
+        var calculate = $("#calculate");
+
+        $(calculate).on({
+
+            click: function ()
+            {
+                var leftMember = $("#left-member");
+                var rightMember = $("#right-member");
+
+                if (!leftMember.val() || !rightMember.val())
+                {
+                    alert("Error :(");
+                    return;
+                }
+
+                var a = Number(leftMember.val());
+                var b = Number(rightMember.val());
+                var operator = $("#operators").val();
+
+                if (isNaN(a) || isNaN(b) || a < 0 || b < 0 || a % 1 !== 0 || b % 1 !== 0)
+                    alert("Error :(");
+                else if (b === 0 && (operator === "/" || operator === "%"))
+                {
+                    alert("It’s over 9000!");
+                    console.log("It's over 9000!");
+                }
+                else
+                {
+                    var result;
+                    if (operator === "+")
+                        result = a + b;
+                    else if (operator === '-')
+                        result = a - b;
+                    else if (operator === '*')
+                        result = a * b;
+                    else if (operator === '/')
+                        result = a / b;
+                    else if (operator === '%')
+                        result = a % b;
+
+                    alert(result);
+                    console.log(result);
+                }
+            }
+
+        });
+
+    </script>
+    </body>
+</html>
